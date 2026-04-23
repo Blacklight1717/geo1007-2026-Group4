@@ -127,6 +127,7 @@ var allFunctions = function () {
   };
 
   var handleXMLResponse = function (data) {
+
     var feature = data.getElementsByTagName("intersection")[0];
     if (typeof feature !== "undefined" && feature.childNodes.length > 0) {
       var headerRow = document.createElement("tr");
@@ -155,12 +156,17 @@ var allFunctions = function () {
   };
 
   var getAndDisplayMap = function (wms_request) {
-    var img = document.createElement("img");
-    img.style.display = "none";
-    img.src = wms_request;
-    document.querySelector("main .mapDiv").append(img);
-    img.style.display = "block";
-  };
+  const mapDiv = document.querySelector("main .mapDiv");
+
+  // Remove previous image if it exists
+  const oldImg = mapDiv.querySelector("img");
+  if (oldImg) oldImg.remove();
+
+  // Add new image
+  var img = document.createElement("img");
+  img.src = wms_request;
+  mapDiv.append(img);
+};
 
   var constructWMSrequest = function (
     baseUrl,
