@@ -1,0 +1,31 @@
+body {
+	background:cyan;
+	color: black;
+}
+
+p {
+	border-style:solid;
+	border-width:15px;
+	border-color:red;
+}
+
+ol {
+	border-style:solid;
+	border-color:black;
+}
+
+
+ol.l01 {
+	font-family: fantasy, papyrus;
+}
+
+ol.l02 {
+	font-family: monospace, "courier new";
+}
+
+h1 {
+	color:white;
+	font-size:100px;
+	border-style:dashed;
+	text-align:center;
+}
