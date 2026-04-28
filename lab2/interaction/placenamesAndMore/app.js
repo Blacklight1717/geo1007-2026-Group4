@@ -156,15 +156,11 @@ var allFunctions = function () {
   };
 
   var getAndDisplayMap = function (wms_request) {
+  
   const mapDiv = document.querySelector("main .mapDiv");
-
-  // Remove previous image if it exists
-  const oldImg = mapDiv.querySelector("img");
-  if (oldImg) oldImg.remove();
-
-  // Add new image
   var img = document.createElement("img");
   img.src = wms_request;
+  
   mapDiv.append(img);
 };
 
@@ -259,6 +255,8 @@ var allFunctions = function () {
           lat = elem.textContent;
           break;
         }
+        document.querySelector("main .forDebug2").innerHTML = "";
+        document.getElemenAtById("xmlDataAsTable").innerHTML = "";
       }
 
       children = event.target.parentNode.parentNode.children;
@@ -286,6 +284,7 @@ var allFunctions = function () {
           lat = elem.textContent;
           break;
         }
+        document.querySelector("main .mapDiv").innerHTML = "";
       }
 
       children = event.target.parentNode.parentNode.children;
@@ -306,3 +305,4 @@ var allFunctions = function () {
 }
 document.addEventListener("DOMContentLoaded", allFunctions);
 
+//final
