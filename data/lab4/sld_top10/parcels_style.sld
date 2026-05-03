@@ -7,33 +7,28 @@
   <NamedLayer>
     <Name>Parcels_style</Name>
     <UserStyle>
-      <Title>A orange line style</Title>
+      <Title>Amber Gold</Title>
       <FeatureTypeStyle>
         <Rule>
-          <Title>orange line</Title>
+          <Title>Amber gold coloured line</Title>
           <LineSymbolizer>
             <Stroke>
               <CssParameter name="stroke">#ffbe0b</CssParameter>
+              <CssParameter name="stroke-width">1.5</CssParameter>
             </Stroke>
+              
           </LineSymbolizer>
         </Rule>
-        
+
         <Rule>
-          <Title>teal polygon</Title>
+          <Title>Blush Rose polygon</Title>
           <PolygonSymbolizer>
             <Fill>
               <CssParameter name="fill">#da627d
               </CssParameter>
             </Fill>
-            <Stroke>
-              <CssParameter name="stroke">#000000</CssParameter>
-              <CssParameter name="stroke-width">0.5</CssParameter>
-            </Stroke>
           </PolygonSymbolizer>
-
         </Rule>
-        
-
       </FeatureTypeStyle>
     </UserStyle>
   </NamedLayer>

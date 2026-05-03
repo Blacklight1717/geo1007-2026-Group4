@@ -86,8 +86,8 @@ var parcels = new L.tileLayer.wms(wms_parcels_url, {
 
 var wms_terrain_url = "http://localhost:8080/geoserver/Delft/wms?";
 var terrain = new L.tileLayer.wms(wms_terrain_url, {
-  layers: ["Delft:TERREIN_VLAK"],
-  styles: "Terrain_Style",
+  layers: ["Delft:TERREIN_VLAK","Delft:GEBOUW_VLAK"],
+  styles: "Terrain_Style,Building_style",
   format: "image/png",
   transparent: true,
   attribution:
