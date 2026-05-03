@@ -47,17 +47,19 @@ var map = L.map("map-canvas", {
 
 // 2. aerial photo * not working at this moment (see Assignment)
 //    - can be switched on/off by toggle thru L.control.layers (see below in this script)
-var wms_aerial_url = "https://geodata1.nationaalgeoregister.nl/luchtfoto/wms?";
+var wms_aerial_url = "https://service.pdok.nl/hwh/luchtfotorgb/wms/v1_0?";
 var basemap_aerial = new L.tileLayer.wms(wms_aerial_url, {
-  layers: ["luchtfoto_png"],
+  layers: ["2025_orthoHR"],
   styles: "",
   format: "image/png",
   transparent: true,
   pointerCursor: true,
 });
 basemap_aerial.getAttribution = function () {
-  return 'Luchtfoto WMS <a href="https://www.kadaster.nl">Kadaster</a>.';
+  return 'Luchtfoto WMS <a href="https://service.pdok.nl/hwh/luchtfotorgb/wms/v1_0?request=GetCapabilities&service=WMS">PDOK Luchtfoto 2026 Quick Ortho 8cm RGB</a>.';
 };
+
+https://secure.geodata2.nationaalgeoregister.nl/lv-beeldmateriaal/2019/wms?request=GetCapabilities
 
 // 3. a thematic WMS as overlay map
 var wms_sound_url = "https://data.rivm.nl/geo/alo/wms?";
@@ -71,8 +73,46 @@ var sound = new L.tileLayer.wms(wms_sound_url, {
   pointerCursor: true,
 });
 
+var wms_parcels_url = "http://localhost:8080/geoserver/Delft/wms?";
+var parcels = new L.tileLayer.wms(wms_parcels_url, {
+  layers: ["Delft:Delft Parcels"],
+  styles: "",
+  format: "image/png",
+  transparent: true,
+  attribution:
+    '© <a href="Geoserver Delft"> Delft</a>',
+  pointerCursor: true,
+});
+
+var wms_terrain_url = "http://localhost:8080/geoserver/Delft/wms?";
+var terrain = new L.tileLayer.wms(wms_terrain_url, {
+  layers: ["Delft:TERREIN_VLAK"],
+  styles: "Terrain_Style",
+  format: "image/png",
+  transparent: true,
+  attribution:
+    '© <a href="Geoserver Delft">  Building and Terrain</a>',
+  pointerCursor: true,
+});
+
+//Adding PDOK Layer
+var wms_pdok_terrain_url = "https://service.pdok.nl/rws/actueel-hoogtebestand-nederland/wms/v1_0?";
+var pdok_terrain = new L.tileLayer.wms(wms_pdok_terrain_url, {
+  layers: ["dtm_05m"],
+  styles: "",
+  format: "image/png",
+  transparent: true,
+  attribution:
+    '© <a href="https://service.pdok.nl/rws/actueel-hoogtebestand-nederland/wms/v1_0?request=GetCapabilities&service=WMS">PDOK DTM 5m </a>',
+  pointerCursor: true,
+});
+
+
 var overlays = {
   "Road noise [WMS]": sound,
+  "Parcels[WMS]":parcels,
+  "Terrain":terrain,
+  "DTM-PDOK":pdok_terrain,
 };
 
 var baseLayers = {
