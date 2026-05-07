@@ -94,9 +94,9 @@ function registerWFSReadAndWriteLayer(mapInstance, toc) {
      // Settings - These need to agree with the definition of the WFS layer in Geoserver
      var namespace_prefix = "geo1007";
      var namespace_uri = "http://all.kinds.of.data";
-     var server_url = window.location.origin
-     var layer_name = "pois"
-     var geom_column_name = "geom"
+     var server_url = "http://localhost:8080";
+     var layer_name = "pois";
+     var geom_column_name = "geom";
      // End Settings
 
      // reading the layer from the WFS
