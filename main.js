@@ -2,7 +2,7 @@
 let res = [3440.640, 1720.320, 860.160, 430.080, 215.040, 107.520, 53.760, 26.880, 13.440, 6.720, 3.360, 1.680, 0.840, 0.420, 0.210, 0.105];
 let map = L.map('map-canvas', {
   continuousWorld: true,
-  crs: new L.Proj.CRS('EPSG:4326', '+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +towgs84=565.2369,50.0087,465.658,-0.406857330322398,0.350732676542563,-1.8703473836068,4.0812 +no_defs', {
+  crs: new L.Proj.CRS('EPSG:28992', '+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +towgs84=565.2369,50.0087,465.658,-0.406857330322398,0.350732676542563,-1.8703473836068,4.0812 +no_defs', {
     transformation: L.Transformation(-1, -1, 0, 0),
     resolutions: res,
     origin: [-285401.920, 903401.920],
@@ -30,73 +30,13 @@ let baseLayers = {
 };
 let toc = L.control.layers(baseLayers).addTo(map);
 
-// Register a geocoder to the map app 
-register_geocoder = function (mapInstance) {
-  let polygon = null;
-
-  function clear() {
-    if (polygon !== null) {
-      mapInstance.removeLayer(polygon);
-    }
-  }
-
-  var geocoder = L.Control.geocoder({
-    defaultMarkGeocode: false
-  })
-    .on('markgeocode', function (e) {
-      clear()
-      var bbox = e.geocode.bbox;
-      polygon = L.polygon([
-        bbox.getSouthEast(),
-        bbox.getNorthEast(),
-        bbox.getNorthWest(),
-        bbox.getSouthWest()
-      ]);
-      mapInstance.addLayer(polygon);
-      mapInstance.fitBounds(polygon.getBounds());
-      setTimeout(clear, 2500);
-    })
-    .addTo(mapInstance);
-  return geocoder;
-}
-
-register_geocoder(map)
-
-function registerGeoLocate(mapInstance) {
-  mapInstance.locate({ setView: true, maxZoom: 16 });
-
-  function onLocationFound(e) {
-    var radius = e.accuracy;
-
-    let m = L.marker(e.latlng).addTo(map)
-      .bindPopup("You are within " + radius.toFixed(1) + " meters from this point").openPopup();
-
-    let c = L.circle(e.latlng, radius).addTo(map);
-
-    setTimeout(function () {
-      mapInstance.removeLayer(m);
-      mapInstance.removeLayer(c);
-    },
-      25000);
-  }
-
-  mapInstance.on('locationfound', onLocationFound);
-
-  function onLocationError(e) {
-    alert(e.message);
-  }
-
-  mapInstance.on('locationerror', onLocationError);
-}
-registerGeoLocate(map)
-
 function registerWFSReadAndWriteLayer(mapInstance, toc) {
      // Settings - These need to agree with the definition of the WFS layer in Geoserver
      var namespace_prefix = "geo1007";
      var namespace_uri = "http://all.kinds.of.data";
-     var server_url = "http://localhost:8080";
-     var layer_name = "pois";
-     var geom_column_name = "geom";
+     var server_url = "http://localhost:8080"
+     var layer_name = "pois"
+     var geom_column_name = "geom"
      // End Settings
 
      // reading the layer from the WFS
@@ -145,8 +85,7 @@ function registerWFSReadAndWriteLayer(mapInstance, toc) {
  }
  let insertWFS = registerWFSReadAndWriteLayer(map, toc)
 
-
- function registerPopUpForInsert(mapInstance) {
+  function registerPopUpForInsert(mapInstance) {
      var popup = L.popup();
 
      function onMapClick(e) {
