@@ -135,7 +135,7 @@
     // mdv 2018 geoweb course: switch default osmbuildings vector layer off
     //osmb.addGeoJSONTiles('https://{s}.data.osmbuildings.org/0.2/anonymous/tile/{z}/{x}/{y}.json');
 
-    var url_wfs = 'http://localhost:8080/geoserver/Delft/ows?';
+    var url_wfs = 'http://localhost:8080/geoserver/assignment3/ows?';
     var featuretype = 'Delft:pand_2d_4326';
     var geometryName = 'the_geom';
     // These are the basic parameters for a WFS request 
@@ -151,6 +151,7 @@
     params += ',bouwjaar';
     // finally a selection filter, to select the tiles
     params += '&cql_filter=t{z}_x \= {x} and t{z}_y \= {y} and bouwjaar<1650 and pc4_max > 2600';
+
 
     console.log(params);
 
