@@ -150,7 +150,7 @@
     // and in this use case the bouwjaar (= year that building was constructed)
     params += ',bouwjaar';
     // finally a selection filter, to select the tiles
-    params += '&cql_filter=t{z}_x \= {x} and t{z}_y \= {y}';
+    params += '&cql_filter=t{z}_x \= {x} and t{z}_y \= {y} and bouwjaar<1650 and pc4_max > 2600';
 
     console.log(params);
 
