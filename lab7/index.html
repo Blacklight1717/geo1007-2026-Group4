@@ -25,6 +25,7 @@
     </style>
 
     <title>Demo Map</title>
+    <script src="https://unpkg.com/sta-map"></script>
 </head>
 <body>
 
@@ -40,6 +41,19 @@
         maxZoom: 18
     }).addTo(mymap);
 
+    L.stam({
+            baseUrl: 
+            "http://localhost:8080/FROST-Server/v1.1", 
+            cluster: false,
+            clusterMin: 6,
+            queryObject: {
+                entityType: 'Things'
+            },
+            plot: {
+                startDate: new Date('2025-03-28T00:00:00Z'),
+                endDate: new Date('2025-05-13T00:00:00Z')
+            }
+        }).addTo(mymap);
 </script>
 
 </body>

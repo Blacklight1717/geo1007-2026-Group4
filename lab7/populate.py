@@ -6,7 +6,7 @@ from typing import Dict, List, Tuple
 import urllib.error
 import urllib.request
 
-API_ROOT = "http://localhost:8080/FROST-Server.HTTP-2.3.1/v1.1"
+API_ROOT = "http://localhost:8080/FROST-Server/v1.1"
 API_END_POINTS = {
     "Datastreams": API_ROOT + "/Datastreams",
     "FeaturesOfInterest" : API_ROOT + "/FeaturesOfInterest",

@@ -1,0 +1,40 @@
+{
+  "value": [
+    {
+      "@iot.selfLink": "http://localhost:8080/FROST-Server/v1.1/Things(5)",
+      "@iot.id": 5,
+      "name": "P1",
+      "description": "Car Park P1",
+      "HistoricalLocations@iot.navigationLink": "http://localhost:8080/FROST-Server/v1.1/Things(5)/HistoricalLocations",
+      "Locations@iot.navigationLink": "http://localhost:8080/FROST-Server/v1.1/Things(5)/Locations",
+      "Datastreams@iot.navigationLink": "http://localhost:8080/FROST-Server/v1.1/Things(5)/Datastreams"
+    },
+    {
+      "@iot.selfLink": "http://localhost:8080/FROST-Server/v1.1/Things(6)",
+      "@iot.id": 6,
+      "name": "P2",
+      "description": "Car Park P2",
+      "HistoricalLocations@iot.navigationLink": "http://localhost:8080/FROST-Server/v1.1/Things(6)/HistoricalLocations",
+      "Locations@iot.navigationLink": "http://localhost:8080/FROST-Server/v1.1/Things(6)/Locations",
+      "Datastreams@iot.navigationLink": "http://localhost:8080/FROST-Server/v1.1/Things(6)/Datastreams"
+    },
+    {
+      "@iot.selfLink": "http://localhost:8080/FROST-Server/v1.1/Things(7)",
+      "@iot.id": 7,
+      "name": "P3",
+      "description": "Car Park P3",
+      "HistoricalLocations@iot.navigationLink": "http://localhost:8080/FROST-Server/v1.1/Things(7)/HistoricalLocations",
+      "Locations@iot.navigationLink": "http://localhost:8080/FROST-Server/v1.1/Things(7)/Locations",
+      "Datastreams@iot.navigationLink": "http://localhost:8080/FROST-Server/v1.1/Things(7)/Datastreams"
+    },
+    {
+      "@iot.selfLink": "http://localhost:8080/FROST-Server/v1.1/Things(8)",
+      "@iot.id": 8,
+      "name": "P4",
+      "description": "Car Park P4",
+      "HistoricalLocations@iot.navigationLink": "http://localhost:8080/FROST-Server/v1.1/Things(8)/HistoricalLocations",
+      "Locations@iot.navigationLink": "http://localhost:8080/FROST-Server/v1.1/Things(8)/Locations",
+      "Datastreams@iot.navigationLink": "http://localhost:8080/FROST-Server/v1.1/Things(8)/Datastreams"
+    }
+  ]
+}

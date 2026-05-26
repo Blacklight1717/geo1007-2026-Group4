@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  frost-server:
+    image: fraunhoferiosb/frost-server:latest
+    container_name: frost-sensorthings
+    ports:
+      - "8080:8080"
+    environment:
+      # The base URL where your SensorThings API will be accessible
+      - serviceRootUrl=http://localhost:8080/FROST-Server
+      
+      # Database connection settings
+      - persistence_db_driver=org.postgresql.Driver
+      # Replace 'host.docker.internal' if your database is hosted elsewhere
+      - persistence_db_url=jdbc:postgresql://host.docker.internal:5432/sensorthings
+      - persistence_db_username=postgres
+      - persistence_db_password=
+      
+      # Tells FROST to automatically create/update the SensorThings schema
+      - persistence_autoUpdateDatabase=true
+      
+      # Core plugin configurations
+      - plugins_modelLoader_enable=true
+      - http_cors_enable=true
+      - http_cors_allowed_origins=*
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
